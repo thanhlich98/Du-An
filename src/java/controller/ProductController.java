@@ -30,21 +30,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping(value = "/product/")
 public class ProductController {
-    
-    @RequestMapping("showproduct")
+
+    @RequestMapping("contact")
+    public String contact() {
+        return "user/contact";
+    }
+
+    @RequestMapping("index")
+    public String index() {
+        return "user/index";
+    }   
+    @RequestMapping("shop")
     public String showpd(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
-        
+
         ProductsDAO products = new ProductsDAO();
         List<Products> ds = new ArrayList<>();
         ds = products.showproducts();
-        
+
         session.setAttribute("list_product", ds);
         session.setAttribute("uri", request.getRequestURI().substring(request.getContextPath().length()));// session uri được tạo ra khi chạy đúng trang /product/showproduct.htm, mặc định trang chủ được set ở redirect.jsp
-       
-        return "user/product";
+
+        return "user/shop";
     }
-    @RequestMapping(value = "search" ,method = RequestMethod.GET)
+
+    @RequestMapping(value = "search", method = RequestMethod.GET)
     public String search(ModelMap model, HttpServletRequest request) {
         String txtSearch = request.getParameter("txtSearch");
         HttpSession session = request.getSession(false);
@@ -57,4 +67,5 @@ public class ProductController {
         session.setAttribute("uri", request.getRequestURI().substring(request.getContextPath().length()));
         return "user/searchProduct";
     }
+
 }

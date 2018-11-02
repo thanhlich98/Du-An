@@ -15,7 +15,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h2>${shop_title_search_result}${ao_search_result}${quan_search_result}${phukien_search_result}</h2>
+        <h2>${search_size} Products Found </h2>
 
         <table border="1">
             <tr>

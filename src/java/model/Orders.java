@@ -13,11 +13,10 @@ public class Orders {
 
     private int id;
     private String customersname;
-    private String orderstatus;
+    private boolean orderstatus;
     private int total;
+    private boolean payment;
     private String date;
-    private String address;
-    private String phone;
 
     public int getId() {
         return id;
@@ -35,12 +34,28 @@ public class Orders {
         this.customersname = customersname;
     }
 
+    public boolean isOrderstatus() {
+        return orderstatus;
+    }
+
+    public void setOrderstatus(boolean orderstatus) {
+        this.orderstatus = orderstatus;
+    }
+
     public int getTotal() {
         return total;
     }
 
     public void setTotal(int total) {
         this.total = total;
+    }
+
+    public boolean isPayment() {
+        return payment;
+    }
+
+    public void setPayment(boolean payment) {
+        this.payment = payment;
     }
 
     public String getDate() {
@@ -51,51 +66,25 @@ public class Orders {
         this.date = date;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public Orders() {
     }
 
-    public String getOrderstatus() {
-        return orderstatus;
-    }
-
-    public void setOrderstatus(String orderstatus) {
-        this.orderstatus = orderstatus;
-    }
-
-    public Orders(int id, String customersname, String orderstatus, int total, String date, String address, String phone) {
+    public Orders(int id, String customersname, boolean orderstatus, int total, boolean payment, String date) {
         this.id = id;
         this.customersname = customersname;
         this.orderstatus = orderstatus;
         this.total = total;
+        this.payment = payment;
         this.date = date;
-        this.address = address;
-        this.phone = phone;
     }
 
-    public Orders(String customersname, String orderstatus, int total, String date, String address, String phone) {
+    public Orders(String customersname, boolean orderstatus, int total, boolean payment, String date) {
 
         this.customersname = customersname;
         this.orderstatus = orderstatus;
         this.total = total;
+        this.payment = payment;
         this.date = date;
-        this.address = address;
-        this.phone = phone;
     }
 
 }

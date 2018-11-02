@@ -38,25 +38,26 @@ public class CartBeanController {
         if (a == null) {
             a = new CartBean();
         }
-        ProductDetailDAO productsDetail = new ProductDetailDAO();// thực ra viết cái này findOne_Id_of_Product(products_id) trong ProductsDAO cũng được đỡ phải tạo 2 cái DAO mà kết quả lại chả khác gì nhau
-        List<Products> ds = new ArrayList<Products>();
-        ds = productsDetail.findOne_Id_of_Product(products_id);
-        String name = ds.get(0).getName();
-        int id = ds.get(0).getId();
-        int price = ds.get(0).getPrice();
-        String image = ds.get(0).getImage();
-        boolean status = ds.get(0).isStatus();
-        int quantity = ds.get(0).getQuantity();
-        Products s = new Products(id, name, image, status, price, quantity);
-
+        ProductDetailDAO productsDetail = new ProductDetailDAO();// 
+        List<Products> list = new ArrayList<Products>();
+        list = productsDetail.findOne_Id_of_Product(products_id);
+        String name = list.get(0).getName().toString();
+        int id = list.get(0).getId();
+        int price = list.get(0).getPrice();
+        String image = list.get(0).getImage();
+        String status = list.get(0).getStatus();
+        int pricediscount = list.get(0).getGuarantee();
+        int quantity = list.get(0).getQuantity();
+        
+        int catalod = list.get(0).getIdCatagories();
+        int idadmin = list.get(0).getIdAdmin();
+        String tag = list.get(0).getTag();
+        String des = list.get(0).getDes();
+        Products  s = new Products(products_id, name, image, status, quantity, price, tag, des,pricediscount, catalod, idadmin);
         ProductDTO sanpham = new ProductDTO(s);
-
         a.addSanPham(sanpham);
-
         session.setAttribute("SHOP", a);
         session.setAttribute("CARTSIZE", a.size());
-        
-
         return "redirect:" + session.getAttribute("uri").toString();//return ve ProductController nơi mà được set uri
     }
 

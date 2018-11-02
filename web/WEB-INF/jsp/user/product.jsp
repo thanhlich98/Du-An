@@ -40,7 +40,7 @@
                     <td>${items.price}</td>
                     <td>${items.quantity}</td>
                 <input type="hidden" name="id" value="${items.id}" />
-                <td><a href="<s:url value="../product/${items.id}"/>"> Delete</a>  </td><!-- Tại sao button không xử lý trong form thì research @PathVariable -> nó truyền item.id -> controller -> từ controller xử lý cái id đó và select từ sql ra -> không cần phải xài form nhiều chỗ-->
+                <td><a href="<s:url value="../product/${items.id}.htm"/>"> Delete</a>  </td><!-- Tại sao button không xử lý trong form thì research @PathVariable -> nó truyền item.id -> controller -> từ controller xử lý cái id đó và select từ sql ra -> không cần phải xài form nhiều chỗ-->
                 <td><a href="<s:url value="/cartbean/${items.id}.htm"/>">Add to cart</a></td>
             </tr>
         </c:forEach>
@@ -88,7 +88,7 @@
     <div class="checkout-btn mt-100">
         <a href="../checkout/checkout.htm" class="btn essence-btn">check out</a>
 
-
+        <a href="../product/index.htm" >Index Page</a>
 
     </div>
 

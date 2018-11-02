@@ -10,6 +10,7 @@ package model;
  * @author tanks
  */
 public class OrderDetail {
+
     private int id;
     private int quantity;
     private int orderid;
@@ -25,9 +26,10 @@ public class OrderDetail {
         this.productid = productid;
     }
 
-    public OrderDetail(int quantity, int orderid, int productid) {
-        this.quantity = quantity;
+    public OrderDetail(int orderid, int quantity, int productid) {
+
         this.orderid = orderid;
+        this.quantity = quantity;
         this.productid = productid;
     }
 
@@ -62,7 +64,5 @@ public class OrderDetail {
     public void setProductid(int productid) {
         this.productid = productid;
     }
-    
-    
-    
+
 }

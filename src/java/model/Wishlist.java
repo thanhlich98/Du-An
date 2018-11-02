@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -15,7 +15,6 @@ public class Wishlist {
     private int userId;
     private int productId;
     private String productName;
-    private int productDiscount;
     private int productPrice;
     
     
@@ -54,13 +53,7 @@ public class Wishlist {
         this.productName = productName;
     }
 
-    public int getProductDiscount() {
-        return productDiscount;
-    }
-
-    public void setProductDiscount(int productDiscount) {
-        this.productDiscount = productDiscount;
-    }
+   
 
     public int getProductPrice() {
         return productPrice;
@@ -70,12 +63,11 @@ public class Wishlist {
         this.productPrice = productPrice;
     }
 
-    public Wishlist(int Id, int userId, int productId, String productName, int productDiscount, int productPrice) {
+    public Wishlist(int Id, int userId, int productId, String productName,  int productPrice) {
         this.Id = Id;
         this.userId = userId;
         this.productId = productId;
-        this.productName = productName;
-        this.productDiscount = productDiscount;
+        this.productName = productName; 
         this.productPrice = productPrice;
     }
 

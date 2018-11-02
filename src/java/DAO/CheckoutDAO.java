@@ -9,8 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.mail.internet.MimeMessage;
 import model.Orders;
 import model.OrderDetail;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.ui.ModelMap;
 
 /**
  *
@@ -18,37 +23,36 @@ import model.OrderDetail;
  */
 public class CheckoutDAO {
 
+ 
+
     public CheckoutDAO() {
     }
 
     public boolean add_order(Orders orders) {
         try {
             Connection conn = DBConnection.getConn();
-            String sql = "insert into Orders values (?,?,?,?,?,?)";
+            String sql = "insert into Orders values (?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, orders.getCustomersname());
-            ps.setString(2, orders.getOrderstatus());
-            ps.setInt(3, orders.getTotal());   
-            ps.setString(4, orders.getDate());
-            ps.setString(5, orders.getAddress());
-            ps.setString(6, orders.getPhone());
-
+            ps.setBoolean(2, orders.isOrderstatus());
+            ps.setInt(3, orders.getTotal());
+            ps.setBoolean(4, orders.isPayment());
+            ps.setString(5, orders.getDate());
             int rs = ps.executeUpdate();
             if (rs > 0) {
                 return true;
-            }//insert thi excutequry luon dc  k
-            // catch = sai
+            }
         } catch (Exception e) {
             System.out.println("add_order(DAO)");
             e.printStackTrace();
         }
         return false;
     }
-//ok ok con gi nua k, chua tao dc ben trang jsp , back end chua xong chua lam dc cai do a.. ok vay co gi thac mac ib t :V
+
     public int select_id_just_added_to_order() {
         try {
             Connection conn = DBConnection.getConn();
-            String sql = "SELECT MAX(OrderId) FROM Orders";
+            String sql = "SELECT MAX(id) FROM Orders";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
@@ -61,17 +65,16 @@ public class CheckoutDAO {
         }
         return 0;
     }
-    // fix sao , thay cau lenh a
-    // 1 order - n orderdetail
-    // ok r dung k chưa
+
+   
     public boolean add_orderdetail(OrderDetail orderDetail) {
-        // đúng hết rồi nhưng cái này bị lỗi bên SQL theo kiểu khóa chính khóa ngoại
+      
         try {
             Connection conn = DBConnection.getConn();
             String sql = "insert into OrderDetails values (?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, orderDetail.getQuantity());
-            ps.setInt(2, orderDetail.getOrderid());
+            ps.setInt(1, orderDetail.getOrderid());
+            ps.setInt(2, orderDetail.getQuantity());
             ps.setInt(3, orderDetail.getProductid());
             int rs = ps.executeUpdate();
             if (rs > 0) {
@@ -83,4 +86,6 @@ public class CheckoutDAO {
         }
         return false;
     }
+
+   
 }

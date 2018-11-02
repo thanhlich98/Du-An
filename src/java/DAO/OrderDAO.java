@@ -24,7 +24,7 @@ public class OrderDAO {
     public List<Orders> listOrders(String useridd) {
         try {
             Connection conn = DBConnection.getConn();
-            String sql = "select * from Orders where OrderId = '" + useridd + "'";
+            String sql = "select * from Orders where id = '" + useridd + "'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             List<Orders> list = new ArrayList<>();
@@ -32,13 +32,13 @@ public class OrderDAO {
             while (rs.next()) {
                 int id = rs.getInt(1);
                 String name = rs.getString(2);
-                String status = rs.getString(3);
-                int total = rs.getInt(4);              
-                String date = rs.getString(5);
-                String address = rs.getString(6);
-                String phone = rs.getString(7);
-                Orders a = new Orders(id, name, status, total, date, address, phone);
-                
+                boolean status = rs.getBoolean(3);
+                int total = rs.getInt(4);
+                boolean payment = rs.getBoolean(5);
+                String date = rs.getString(6);
+
+                Orders a = new Orders(id, name, status, total, payment, date);
+
                 list.add(a);
             }
             return list;

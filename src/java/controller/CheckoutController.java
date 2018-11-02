@@ -36,7 +36,7 @@ public class CheckoutController {
     public String view(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         session.getAttribute("listUser");
-        return "user/checkout2";
+        return "user/checkout";
     }
 
     @RequestMapping(value = "add_orders", method = RequestMethod.GET) // post hay get
@@ -55,15 +55,14 @@ public class CheckoutController {
         Delivery delivery = new Delivery(name, address, now.toString(), endday.toString(), phone, true);
         DeliveryDAO d = new DeliveryDAO();
         d.Insert(delivery);
-//không có lỗi những không vào db à ?,um
-        // bang orderdeatil á
+
         CartBean cartBean = (CartBean) session.getAttribute("SHOP");
         for (ProductDTO productDTO : cartBean.values()) {
             OrderDetail orderdetail = new OrderDetail(list.select_id_just_added_to_order(), productDTO.getQuantity(), productDTO.getSanpham().getId());
             list.add_orderdetail(orderdetail);
         }
 
-        return "user/checkout2";
+        return "user/checkout";
     }
 
 }

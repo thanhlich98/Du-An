@@ -48,12 +48,12 @@ public class CartBeanController {
         String status = list.get(0).getStatus();
         int pricediscount = list.get(0).getGuarantee();
         int quantity = list.get(0).getQuantity();
-        
+
         int catalod = list.get(0).getIdCatagories();
         int idadmin = list.get(0).getIdAdmin();
         String tag = list.get(0).getTag();
         String des = list.get(0).getDes();
-        Products  s = new Products(products_id, name, image, status, quantity, price, tag, des,pricediscount, catalod, idadmin);
+        Products s = new Products(products_id, name, image, status, quantity, price, tag, des, pricediscount, catalod, idadmin);
         ProductDTO sanpham = new ProductDTO(s);
         a.addSanPham(sanpham);
         session.setAttribute("SHOP", a);
@@ -76,7 +76,7 @@ public class CartBeanController {
                 }
             }
         }
-        return "redirect:" + session.getAttribute("uri").toString();//return ve ProductController nơi mà được set uri
+        return "redirect:" + session.getAttribute("uri").toString();
     }
 
 }

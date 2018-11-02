@@ -39,7 +39,13 @@ public class ProductController {
     @RequestMapping("index")
     public String index() {
         return "user/index";
-    }   
+    }
+
+    @RequestMapping("cart")
+    public String showcart() {
+        return "user/cart";
+    }
+
     @RequestMapping("shop")
     public String showpd(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);

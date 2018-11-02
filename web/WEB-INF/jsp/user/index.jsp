@@ -53,9 +53,9 @@
                                         <li><a href="#"><span class="icon icon-person"></span></a></li>
                                         <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                         <li>
-                                            <a href="cart.html" class="site-cart">
+                                            <a href="../product/cart.htm" class="site-cart">
                                                 <span class="icon icon-shopping_cart"></span>
-                                                <span class="count">2</span>
+                                                <span class="count">${sessionScope.CARTSIZE}</span>
                                             </a>
                                         </li> 
                                         <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -66,36 +66,36 @@
                         </div>
                     </div>
                 </div> 
-                <nav class="site-navigation text-right text-md-center" role="navigation">
+                 <nav class="site-navigation text-right text-md-center" role="navigation">
                     <div class="container">
                         <ul class="site-menu js-clone-nav d-none d-md-block">
-                            <li class="has-children active">
+                            <li class="has-children">
                                 <a href="../product/index.htm">Home</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Menu One</a></li>
-                                    <li><a href="#">Menu Two</a></li>
-                                    <li><a href="#">Menu Three</a></li>
+                                    <li><a href="#">Linh Kiện PC</a></li>
+                                    <li><a href="#">Màn Hình</a></li>
+                                    <li><a href="#">Bàn Phím</a></li>
                                     <li class="has-children">
-                                        <a href="#">Sub Menu</a>
+                                        <a href="#">PC & LapTop</a>
                                         <ul class="dropdown">
-                                            <li><a href="#">Menu One</a></li>
-                                            <li><a href="#">Menu Two</a></li>
-                                            <li><a href="#">Menu Three</a></li>
+                                            <li><a href="#">Dưới 10 triệu</a></li>
+                                            <li><a href="#">Từ 10 đến 20 Triệu</a></li>
+                                            <li><a href="#">Trên 20 triệu</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="has-children">
-                                <a href="about.html">About</a>
+                            <li class="has-cahildren">
+                                <a href="#">Accessories</a>
                                 <ul class="dropdown">
-                                    <li><a href="#">Menu One</a></li>
-                                    <li><a href="#">Menu Two</a></li>
-                                    <li><a href="#">Menu Three</a></li>
+                                    <li><a href="#">Bàn Phím</a></li>
+                                    <li><a href="#">Chuột</a></li>
+                                    <li><a href="#">Màn Hình</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../product/shop.htm">Shop</a></li>
-                            <li><a href="#">Catalogue</a></li>
-                            <li><a href="#">New Arrivals</a></li>
+                            <li class="active"><a href="../product/shop.htm">Shop</a></li>
+                            <li><a href="#">Catagories</a></li>
+                            <li><a href="#">About</a></li>
                             <li><a href="../product/contact.htm">Contact</a></li>
                         </ul>
                     </div>

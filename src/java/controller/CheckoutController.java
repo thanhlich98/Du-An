@@ -32,6 +32,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/checkout/")
 public class CheckoutController {
 
+    @Autowired
+    JavaMailSender mailer1;
+
     @RequestMapping("checkout")
     public String view(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
@@ -61,8 +64,27 @@ public class CheckoutController {
             OrderDetail orderdetail = new OrderDetail(list.select_id_just_added_to_order(), productDTO.getQuantity(), productDTO.getSanpham().getId());
             list.add_orderdetail(orderdetail);
         }
+        try {
+            // Tạo mail
+            MimeMessage mail = mailer1.createMimeMessage();
+            // Sử dụng lớp trợ giúp
+            MimeMessageHelper helper = new MimeMessageHelper(mail);
+            String from = "lich.le.339@gmail.com";
+            String subject = "Đặt đơn hàng từ Essence Shop";
+            String body = "Đơn hàng của bạn đã được đặt thành công ! ";
+            helper.setFrom(from, from);
+            helper.setTo(email);
+            helper.setReplyTo(from, from);
+            helper.setSubject(subject);
+            helper.setText(body, true);
+            // Gửi mail
+            mailer1.send(mail);
+        } catch (Exception e) {
+            model.addAttribute("message", "Gửi email thất bại !");
+            e.printStackTrace();
+        }
 
-        return "user/checkout";
+        return "user/thankyou";
     }
 
 }

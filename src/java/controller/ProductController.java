@@ -54,7 +54,7 @@ public class ProductController {
         List<Products> ds = new ArrayList<>();
         ds = products.showproducts();
 
-        session.setAttribute("list_product", ds);
+        session.setAttribute("listProducts", ds);
         session.setAttribute("uri", request.getRequestURI().substring(request.getContextPath().length()));// session uri được tạo ra khi chạy đúng trang /product/showproduct.htm, mặc định trang chủ được set ở redirect.jsp
 
         return "user/shop";
@@ -71,7 +71,9 @@ public class ProductController {
         model.addAttribute("listProducts", ds);
         model.addAttribute("shop_title_search_result", "search result");
         session.setAttribute("uri", request.getRequestURI().substring(request.getContextPath().length()));
-        return "user/searchProduct";
+        
+        return "user/shop";
     }
+    
 
 }

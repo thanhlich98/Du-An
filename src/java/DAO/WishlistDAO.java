@@ -18,22 +18,22 @@ import model.Wishlist;
  * @author ThanhLich
  */
 public class WishlistDAO {
-     public List<Wishlist> showWishlist(String IdOfUser) {
+     public List<Wishlist> showWishlist(String  IdOfUser) {
         try {
             Connection conn = DBConnection.getConn();
             String sql = "select Wishlist.*, Product.*\n"
                     + "from Wishlist\n"
-                    + "inner join idProduct\n"
-                    + "on Wishlist.idProduct = Product.Id\n"
+                    + "inner join Products\n"
+                    + "on Wishlist.idProduct = Products.id\n"
                     + "where Wishlist.idCustomer = '" + IdOfUser + "'";
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             List<Wishlist> list = new ArrayList<Wishlist>();
             while (rs.next()) {
                 int id = rs.getInt(1);
-                int userid = rs.getInt(2);
-                int productid = rs.getInt(3);
-                String productname = rs.getString(5);
+                int userid = rs.getInt(3);
+                int productid = rs.getInt(2);
+                String productname = rs.getString(4);
                 String productbrand = rs.getString("tagProduct");
                 int productprice = rs.getInt("priceProduct");
                 Wishlist a = new Wishlist(id, userid, productid, productname,  productprice);

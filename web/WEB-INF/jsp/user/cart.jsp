@@ -91,7 +91,7 @@
                                     <li><a href="#">Màn Hình</a></li>
                                 </ul>
                             </li>
-                            <li class="active"><a href="../product/shop.htm">Shop</a></li>
+                            <li ><a href="../product/shop.htm">Shop</a></li>
                             <li><a href="#">Catagories</a></li>
                             <li><a href="#">About</a></li>
                             <li><a href="../product/contact.htm">Contact</a></li>
@@ -130,6 +130,7 @@
                                             <c:set var="totalprice" value="${0}"/>
                                             <c:set var="totaldiscount" value="${0}"/>
                                             <c:set var="totalquantity" value="${0}"/>
+                                            <c:set var="totalquantityitem" value="${0}"/>
                                             <c:forEach var="rows" items="${shop}">
                                                 <c:set var="totalprice" value="${totalprice + rows.value.sanpham.price * rows.value.quantity}"/>
                                                 <c:set var="totalquantity" value="${totalquantity + rows.value.quantity}"/>
@@ -143,13 +144,16 @@
                                                     <td>${rows.value.sanpham.price}&#8363</td>
 
                                                     <td>
-                                                        ${rows.value.quantity}   
+
+                                                        ${rows.value.quantity}
                                                     </td>
 
 
-                                                    <td>${rows.value.sanpham.price * rows.value.quantity}</td>
 
-                                                    <td><a href="<s:url value="/cartbean/remove/${rows.value.sanpham.id}.htm"/>" class="btn btn-primary btn-sm">X</a></td>
+
+                                                    <td>${rows.value.sanpham.price * rows.value.quantity}&#8363</td>
+
+                                                    <td><a href="<s:url value="../cartbean/remove/${rows.value.sanpham.id}.htm"/>" class="btn btn-primary btn-sm">X</a></td>
                                                 </tr>
 
 
@@ -205,7 +209,7 @@
                                             <span class="text-black">TotalPrice</span>
                                         </div>
                                         <div class="col-md-6 text-right">
-                                            <strong class="text-black">${totalprice}</strong>
+                                            <strong class="text-black">${totalprice}&#8363</strong>
                                         </div>
                                     </div>
                                     <form action="../checkout/checkout.htm">
@@ -299,14 +303,15 @@
                     </div>
                 </div>
             </footer>
-            <script src="../js/jquery-3.3.1.min.js"></script>
-            <script src="../js/jquery-ui.js"></script>
-            <script src="../js/popper.min.js"></script>
-            <script src="../js/bootstrap.min.js"></script>
-            <script src="../js/owl.carousel.min.js"></script>
-            <script src="../js/jquery.magnific-popup.min.js"></script>
-            <script src="../js/aos.js"></script>
+        </div>
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/jquery-ui.js"></script>
+        <script src="../js/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/owl.carousel.min.js"></script>
+        <script src="../js/jquery.magnific-popup.min.js"></script>
+        <script src="../js/aos.js"></script>
 
-            <script src="../js/main.js"></script>
+        <script src="../js/main.js"></script>
     </body>
 </html>

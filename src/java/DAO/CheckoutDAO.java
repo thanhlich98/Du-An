@@ -31,13 +31,18 @@ public class CheckoutDAO {
     public boolean add_order(Orders orders) {
         try {
             Connection conn = DBConnection.getConn();
-            String sql = "insert into Orders values (?,?,?,?,?)";
+            String sql = "insert into Orders values (?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, orders.getCustomersname());
             ps.setBoolean(2, orders.isOrderstatus());
             ps.setInt(3, orders.getTotal());
             ps.setBoolean(4, orders.isPayment());
             ps.setString(5, orders.getDate());
+            ps.setInt(6, orders.getIdcus());
+            ps.setString(7, orders.getEnddate());
+            ps.setString(8, orders.getPhone());
+            ps.setString(9, orders.getAddress());
+            ps.setString(10, orders.getEmail());
             int rs = ps.executeUpdate();
             if (rs > 0) {
                 return true;

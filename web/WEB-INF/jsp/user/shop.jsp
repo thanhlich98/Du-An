@@ -192,11 +192,11 @@
                                 <div class="col-md-9 order-2">
                                     <div id="easyPaginate" class="row">
                                         <c:forEach var="items" items="${sessionScope.listProducts}">
-                                            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
+                                            <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" >
 
                                                 <div class="block-4 text-center border">
                                                     <figure class="block-4-image">
-                                                        <a href="shop-single.html"><img src="../images/${items.image}" alt="Image placeholder" class="img-fluid"></a>
+                                                        <a href="shop-single.html"><img src="../images/${items.image}" alt="Image placeholder" class="img-fluid" width="700px" height="700px"></a>
                                                     </figure>
                                                     <div class="block-4-text p-4">
                                                         <h3><a href="shop-single.html">${items.name}</a></h3>

@@ -36,8 +36,13 @@ public class OrderDAO {
                 int total = rs.getInt(4);
                 boolean payment = rs.getBoolean(5);
                 String date = rs.getString(6);
+                int idcus = rs.getInt(7);
+                String enddate = rs.getString(8);
+                String phone = rs.getString(9);
+                String address = rs.getString(10);
+                String email =rs.getString(11);
 
-                Orders a = new Orders(id, name, status, total, payment, date);
+                Orders a = new Orders(id, name, status, total, payment, date,idcus, enddate, phone, address, email);
 
                 list.add(a);
             }

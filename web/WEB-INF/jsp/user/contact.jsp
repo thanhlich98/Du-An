@@ -85,18 +85,14 @@
                         </form>
                     </div>
                     <div class="col-md-5 ml-auto">
+
                         <div class="p-4 border mb-3">
-                            <span class="d-block text-primary h6 text-uppercase">New York</span>
-                            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-                        </div>
-                        <div class="p-4 border mb-3">
-                            <span class="d-block text-primary h6 text-uppercase">London</span>
-                            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-                        </div>
-                        <div class="p-4 border mb-3">
-                            <span class="d-block text-primary h6 text-uppercase">Canada</span>
-                            <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-                        </div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.7528339977093!2d127.03028973869739!3d37.513747285721834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca3056f494f2b%3A0xe191c8eef4de72ea!2sBigHit+Entertainment!5e0!3m2!1svi!2s!4v1541324884456" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                      
+                            <span class="d-block text-primary h6 text-uppercase">Korea</span>
+                            <p class="mb-0">BigHit Entertainment, Hakdong-ro 30-gil, Nonhyeon-dong, Gangnam-gu, Seoul, Hàn Quốc</p>
+                              </div>
+
 
                     </div>
                 </div>

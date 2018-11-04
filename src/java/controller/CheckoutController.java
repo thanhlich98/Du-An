@@ -32,9 +32,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/checkout/")
 public class CheckoutController {
 
-    @Autowired
-    JavaMailSender mailer1;
-
     @RequestMapping("checkout")
     public String view(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
@@ -45,43 +42,21 @@ public class CheckoutController {
     @RequestMapping(value = "add_orders", method = RequestMethod.GET) // post hay get
     public String add_orders(ModelMap model, HttpServletRequest request, HttpSession session) {
         LocalDate now = LocalDate.now();
+        LocalDate endday = now.plusDays(10);
         String name = request.getParameter("txtName");
         String phone = request.getParameter("txtPhone");
         String address = request.getParameter("txtAddress");
         String email = request.getParameter("txtEmail");
         String note = request.getParameter("note");
         String total = request.getParameter("txtTotalPrice");
-        Orders order = new Orders(name, true, Integer.parseInt(total), true, now.toString());
+        Orders order = new Orders(name, true, Integer.parseInt(total), true, now.toString(), 1,endday.toString(),phone,address,email);
         CheckoutDAO list = new CheckoutDAO();
         list.add_order(order);
-        LocalDate endday = now.plusDays(10);
-        Delivery delivery = new Delivery(name, address, now.toString(), endday.toString(), phone, true);
-        DeliveryDAO d = new DeliveryDAO();
-        d.Insert(delivery);
 
         CartBean cartBean = (CartBean) session.getAttribute("SHOP");
         for (ProductDTO productDTO : cartBean.values()) {
             OrderDetail orderdetail = new OrderDetail(list.select_id_just_added_to_order(), productDTO.getQuantity(), productDTO.getSanpham().getId());
             list.add_orderdetail(orderdetail);
-        }
-        try {
-            // Tạo mail
-            MimeMessage mail = mailer1.createMimeMessage();
-            // Sử dụng lớp trợ giúp
-            MimeMessageHelper helper = new MimeMessageHelper(mail);
-            String from = "lich.le.339@gmail.com";
-            String subject = "Đặt đơn hàng từ Essence Shop";
-            String body = "Đơn hàng của bạn đã được đặt thành công ! ";
-            helper.setFrom(from, from);
-            helper.setTo(email);
-            helper.setReplyTo(from, from);
-            helper.setSubject(subject);
-            helper.setText(body, true);
-            // Gửi mail
-            mailer1.send(mail);
-        } catch (Exception e) {
-            model.addAttribute("message", "Gửi email thất bại !");
-            e.printStackTrace();
         }
 
         return "user/thankyou";

@@ -48,9 +48,9 @@
                                         <li><a href="#"><span class="icon icon-person"></span></a></li>
                                         <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
                                         <li>
-                                            <a href="cart.html" class="site-cart">
-                                                <span class="icon icon-shopping_cart"></span>
-                                                <span class="count">${sessionScope.CARTSIZE}</span>
+                                            <a href="cart.html" class="site-cart" onclick="return false;">
+                                                <span class="icon icon-shopping_cart" ></span>
+                                                <span class="count"></span>
                                             </a>
                                         </li> 
                                         <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
@@ -112,7 +112,7 @@
                         <span class="icon-check_circle display-3 text-success"></span>
                         <h2 class="display-3 text-black">Thank you!</h2>
                         <p class="lead mb-5">You order was successfuly completed.</p>
-                        <p><a href="../product/index.htm" class="btn btn-sm btn-primary">Back to shop</a></p>
+                       
                     </div>
                 </div>
             </div>

@@ -196,10 +196,10 @@
 
                                                 <div class="block-4 text-center border">
                                                     <figure class="block-4-image">
-                                                        <a href="shop-single.html"><img src="../images/${items.image}" alt="Image placeholder" class="img-fluid" width="700px" height="700px"></a>
+                                                        <a href="<s:url value="../product_detail/${items.id}.htm"/>"><img src="../images/${items.image}" alt="Image placeholder" class="img-fluid" width="700px" height="700px"></a>
                                                     </figure>
                                                     <div class="block-4-text p-4">
-                                                        <h3><a href="shop-single.html">${items.name}</a></h3>
+                                                        <h3><a href="<s:url value="../product_detail/${items.id}.htm"/>">${items.name}</a></h3>
                                                         <p class="mb-0">${items.tag}</p>
                                                         <p class="text-primary font-weight-bold">${items.price}&#8363</p>
                                                         <a href="<s:url value="/cartbean/${items.id}.htm"/>">Add to cart</a>

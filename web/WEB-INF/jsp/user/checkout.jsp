@@ -147,7 +147,7 @@
                                 <div class="form-group row mb-5">
                                     <div class="col-md-12">
                                         <label for="c_email_address" class="text-black">Email Address <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="c_email_address" name="txtEmail" placeholder="Email">
+                                        <input type="email" class="form-control" id="c_email_address" name="txtEmail" placeholder="Email">
                                     </div>                                
                                 </div>
                                 <input hidden="true" type="text" value="${totalprice}" name="txtTotalPrice"/>

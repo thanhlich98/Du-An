@@ -29,73 +29,7 @@
     </head>
     <body>
         <div class="site-wrap">
-            <header class="site-navbar" role="banner">
-                <div class="site-navbar-top">
-                    <div class="container">
-                        <div class="row align-items-center">
-
-
-
-                            <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
-                                <div class="site-logo">
-                                    <a href="index.html" class="js-logo-clone">Shoppers</a>
-                                </div>
-                            </div>
-
-                            <div class="col-6 col-md-4 order-3 order-md-3 text-right">
-                                <div class="site-top-icons">
-                                    <ul>
-                                        <li><a href="#"><span class="icon icon-person"></span></a></li>
-                                        <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                                        <li>
-                                            <a href="cart.html" class="site-cart" onclick="return false;">
-                                                <span class="icon icon-shopping_cart" ></span>
-                                                <span class="count"></span>
-                                            </a>
-                                        </li> 
-                                        <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
-                                    </ul>
-                                </div> 
-                            </div>
-
-                        </div>
-                    </div>
-                </div> 
-                <nav class="site-navigation text-right text-md-center" role="navigation">
-                    <div class="container">
-                        <ul class="site-menu js-clone-nav d-none d-md-block">
-                            <li class="has-children">
-                                <a href="../product/index.htm">Home</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Linh Kiện PC</a></li>
-                                    <li><a href="#">Màn Hình</a></li>
-                                    <li><a href="#">Bàn Phím</a></li>
-                                    <li class="has-children">
-                                        <a href="#">PC & LapTop</a>
-                                        <ul class="dropdown">
-                                            <li><a href="#">Dưới 10 triệu</a></li>
-                                            <li><a href="#">Từ 10 đến 20 Triệu</a></li>
-                                            <li><a href="#">Trên 20 triệu</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="has-children">
-                                <a href="#">Accessories</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Bàn Phím</a></li>
-                                    <li><a href="#">Chuột</a></li>
-                                    <li><a href="#">Màn Hình</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="../product/shop.htm">Shop</a></li>
-                            <li><a href="#">Catagories</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="../product/contact.htm">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+            <jsp:include page="header.jsp"/>
 
             <div class="bg-light py-3">
                 <div class="container">
@@ -112,7 +46,7 @@
                         <span class="icon-check_circle display-3 text-success"></span>
                         <h2 class="display-3 text-black">Thank you!</h2>
                         <p class="lead mb-5">You order was successfuly completed.</p>
-                       
+
                     </div>
                 </div>
             </div>
